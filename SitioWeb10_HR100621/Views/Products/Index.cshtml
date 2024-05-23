@@ -1,0 +1,74 @@
+﻿@model IEnumerable<SitioWeb10_HR100621.Models.Products>
+
+@{
+    ViewBag.Title = "Listado de Productos";
+}
+
+<h2>Listado de Productos</h2>
+
+<p>
+    @Html.ActionLink("Crear Nuevo Producto", "Create", null, new { @class = "btn btn-primary" })
+</p>
+<table class="table table-striped table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.QuantityPerUnit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UnitPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UnitsInStock)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UnitsInOrder)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Categories.CategoryName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Suppliers.CompanyName)
+            </th>
+            <th>
+                Acciones
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.QuantityPerUnit)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UnitPrice)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UnitsInStock)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UnitsInOrder)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Categories.CategoryName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Suppliers.CompanyName)
+                </td>
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { id = item.ProductID }, new { @class = "btn btn-warning btn-sm" }) |
+                    @Html.ActionLink("Detalles", "Details", new { id = item.ProductID }, new { @class = "btn btn-info btn-sm" }) |
+                    @Html.ActionLink("Eliminar", "Delete", new { id = item.ProductID }, new { @class = "btn btn-danger btn-sm" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

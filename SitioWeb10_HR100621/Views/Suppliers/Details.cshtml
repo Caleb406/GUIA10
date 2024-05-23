@@ -1,0 +1,124 @@
+﻿@model SitioWeb10_HR100621.Models.Suppliers
+
+@{
+    ViewBag.Title = "Detalles";
+}
+
+<style>
+    .detail-label {
+        font-weight: bold;
+        color: #333;
+    }
+
+    .detail-value {
+        color: #666;
+    }
+
+    .detail-section {
+        margin-bottom: 20px;
+    }
+
+        .detail-section hr {
+            border-color: #ccc;
+        }
+
+        .detail-section dl {
+            margin: 0;
+        }
+</style>
+
+<h2>Detalles del Proveedor</h2>
+
+<div class="detail-section">
+    <h4>Información de la Empresa</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt class="detail-label">
+            Nombre de la Empresa
+        </dt>
+        <dd class="detail-value">
+            @Html.DisplayFor(model => model.CompanyName)
+        </dd>
+
+        <dt class="detail-label">
+            Nombre de Contacto
+        </dt>
+        <dd class="detail-value">
+            @Html.DisplayFor(model => model.ContactName)
+        </dd>
+
+        <dt class="detail-label">
+            Cargo del Contacto
+        </dt>
+        <dd class="detail-value">
+            @Html.DisplayFor(model => model.ContactTitle)
+        </dd>
+
+        <dt class="detail-label">
+            Dirección
+        </dt>
+        <dd class="detail-value">
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+
+        <dt class="detail-label">
+            Ciudad
+        </dt>
+        <dd class="detail-value">
+            @Html.DisplayFor(model => model.City)
+        </dd>
+
+        <dt class="detail-label">
+            Región
+        </dt>
+        <dd class="detail-value">
+            @Html.DisplayFor(model => model.Region)
+        </dd>
+
+        <dt class="detail-label">
+            Código Postal
+        </dt>
+        <dd class="detail-value">
+            @Html.DisplayFor(model => model.PostalCode)
+        </dd>
+
+        <dt class="detail-label">
+            País
+        </dt>
+        <dd class="detail-value">
+            @Html.DisplayFor(model => model.Country)
+        </dd>
+    </dl>
+</div>
+
+<div class="detail-section">
+    <h4>Información de Contacto</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt class="detail-label">
+            Teléfono
+        </dt>
+        <dd class="detail-value">
+            @Html.DisplayFor(model => model.Phone)
+        </dd>
+
+        <dt class="detail-label">
+            Fax
+        </dt>
+        <dd class="detail-value">
+            @Html.DisplayFor(model => model.Fax)
+        </dd>
+
+        <dt class="detail-label">
+            Sitio Web
+        </dt>
+        <dd class="detail-value">
+            @Html.DisplayFor(model => model.HomePage)
+        </dd>
+    </dl>
+</div>
+
+<p>
+    @Html.ActionLink("Editar", "Editar", new { id = Model.SupplierID }, new { @class = "btn btn-primary" }) |
+    @Html.ActionLink("Volver a la Lista", "Index", null, new { @class = "btn btn-default" })
+</p>

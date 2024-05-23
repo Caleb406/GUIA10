@@ -1,0 +1,60 @@
+﻿@model IEnumerable<SitioWeb10_HR100621.Models.Suppliers>
+
+@{
+    ViewBag.Title = "Lista de Proveedores";
+}
+
+<h2>Lista de Proveedores</h2>
+
+<div class="row">
+    <div class="col-md-12">
+        <p>
+            <a href="@Url.Action("Create")" class="btn btn-primary">Crear Nuevo</a>
+        </p>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th style="width: 15%;">Nombre de la Compañía</th>
+                        <th style="width: 10%;">Nombre de Contacto</th>
+                        <th style="width: 10%;">Título de Contacto</th>
+                        <th style="width: 15%;">Dirección</th>
+                        <th style="width: 10%;">Ciudad</th>
+                        <th style="width: 5%;">Región</th>
+                        <th style="width: 10%;">Código Postal</th>
+                        <th style="width: 10%;">País</th>
+                        <th style="width: 10%;">Teléfono</th>
+                        <th style="width: 10%;">Fax</th>
+                        <th style="width: 10%;">Página Web</th>
+                        <th style="width: 10%;">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.CompanyName)</td>
+                            <td>@Html.DisplayFor(modelItem => item.ContactName)</td>
+                            <td>@Html.DisplayFor(modelItem => item.ContactTitle)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Address)</td>
+                            <td>@Html.DisplayFor(modelItem => item.City)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Region)</td>
+                            <td>@Html.DisplayFor(modelItem => item.PostalCode)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Country)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Phone)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Fax)</td>
+                            <td>@Html.DisplayFor(modelItem => item.HomePage)</td>
+                            <td>
+                                <div class="btn-group" role="group">
+                                    <a href="@Url.Action("Edit", new { id = item.SupplierID })" class="btn btn-info">Editar</a>
+                                    <a href="@Url.Action("Details", new { id = item.SupplierID })" class="btn btn-primary">Detalles</a>
+                                    <a href="@Url.Action("Delete", new { id = item.SupplierID })" class="btn btn-danger">Eliminar</a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
